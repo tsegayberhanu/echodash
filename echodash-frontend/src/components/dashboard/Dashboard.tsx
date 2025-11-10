@@ -1,11 +1,5 @@
-import { useNavigate, useLocation } from "react-router-dom"
+import { Outlet, useNavigate, useLocation } from "react-router-dom"
 import * as S from "../../styles/Dashboard.styles"
-import HomeTab from "./HomeTab"
-import SongsList from "../songs/SongsList"
-import ArtistsTab from "../artists/ArtistTab"
-import ArtistDetail from "../artists/ArtistDetail"
-import GenresTab from "../genres/GenreTab"
-import AlbumsTab from "../albums/AlbumTab"
 import { useState } from "react"
 
 const HomeIcon = () => <span>🏠</span>
@@ -25,7 +19,6 @@ const Dashboard: React.FC = () => {
 
   const getActiveTab = (): TabType => {
     const path = location.pathname
-
     if (path === "/" || path === "/home") return "home"
     if (path.startsWith("/songs")) return "songs"
     if (path.startsWith("/artists")) return "artists"
@@ -43,29 +36,6 @@ const Dashboard: React.FC = () => {
       void navigate(`/${tab}`)
     }
     setIsMobileMenuOpen(false)
-  }
-
-  const renderTabContent = () => {
-    const path = location.pathname
-
-    if (/\/artists\/[^/]+$/.exec(path)) {
-      return <ArtistDetail />
-    }
-
-    switch (activeTab) {
-      case "home":
-        return <HomeTab />
-      case "songs":
-        return <SongsList />
-      case "artists":
-        return <ArtistsTab />
-      case "albums":
-        return <AlbumsTab />
-      case "genres":
-        return <GenresTab />
-      default:
-        return <HomeTab />
-    }
   }
 
   return (
@@ -93,8 +63,7 @@ const Dashboard: React.FC = () => {
                 handleTabClick("home")
               }}
             >
-              <HomeIcon />
-              Dashboard
+              <HomeIcon /> Dashboard
             </a>
           </S.NavItem>
           <S.NavItem active={activeTab === "songs"}>
@@ -105,8 +74,7 @@ const Dashboard: React.FC = () => {
                 handleTabClick("songs")
               }}
             >
-              <MusicIcon />
-              All Songs
+              <MusicIcon /> All Songs
             </a>
           </S.NavItem>
           <S.NavItem active={activeTab === "artists"}>
@@ -117,8 +85,7 @@ const Dashboard: React.FC = () => {
                 handleTabClick("artists")
               }}
             >
-              <ArtistIcon />
-              Artists
+              <ArtistIcon /> Artists
             </a>
           </S.NavItem>
           <S.NavItem active={activeTab === "albums"}>
@@ -129,8 +96,7 @@ const Dashboard: React.FC = () => {
                 handleTabClick("albums")
               }}
             >
-              <AlbumIcon />
-              Albums
+              <AlbumIcon /> Albums
             </a>
           </S.NavItem>
           <S.NavItem active={activeTab === "genres"}>
@@ -141,8 +107,7 @@ const Dashboard: React.FC = () => {
                 handleTabClick("genres")
               }}
             >
-              <GenreIcon />
-              Genres
+              <GenreIcon /> Genres
             </a>
           </S.NavItem>
         </S.NavList>
@@ -158,7 +123,8 @@ const Dashboard: React.FC = () => {
             {activeTab === "genres" && "Genres"}
           </S.MobileTitle>
         </S.MobileHeader>
-        {renderTabContent()}
+
+        <Outlet />
       </S.MainContent>
 
       {isMobileMenuOpen && (

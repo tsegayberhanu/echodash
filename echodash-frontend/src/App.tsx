@@ -5,6 +5,12 @@ import Dashboard from "./components/dashboard/Dashboard"
 import ArtistDetail from "./components/artists/ArtistDetail"
 import AlbumDetail from "./components/albums/AlbumDetail"
 import GenreDetail from "./components/genres/GenreDetail"
+import HomeTab from "./components/dashboard/HomeTab"
+import SongsList from "./components/songs/SongsList"
+import ArtistsTab from "./components/artists/ArtistTab"
+import AlbumsTab from "./components/albums/AlbumTab"
+import GenreTab from "./components/genres/GenreTab"
+import NotFound from "./components/common/NotFound"
 
 const theme = {
   colors: {
@@ -62,10 +68,17 @@ export const App = () => {
       <AppContainer>
         <Router>
           <Routes>
-            <Route path="/artists/:artistName" element={<ArtistDetail />} />
-            <Route path="/albums/:albumName" element={<AlbumDetail />} />
-            <Route path="/genres/:genreName" element={<GenreDetail />} />
-            <Route path="/*" element={<Dashboard />} />
+            <Route path="/" element={<Dashboard />}>
+              <Route index element={<HomeTab />} />
+              <Route path="songs" element={<SongsList />} />
+              <Route path="artists" element={<ArtistsTab />} />
+              <Route path="artists/:artistName" element={<ArtistDetail />} />
+              <Route path="albums" element={<AlbumsTab />} />
+              <Route path="albums/:albumName" element={<AlbumDetail />} />
+              <Route path="genres" element={<GenreTab />} />
+              <Route path="genres/:genreName" element={<GenreDetail />} />
+              <Route path="*" element={<NotFound />} />
+            </Route>
           </Routes>
         </Router>
       </AppContainer>
