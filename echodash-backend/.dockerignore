@@ -1,0 +1,23 @@
+# Node and dependencies
+node_modules
+npm-debug.log
+yarn-error.log
+
+# Environment and secrets
+.env
+.env.local
+
+# Git and editor files
+.git
+.gitignore
+.vscode
+.idea
+
+# Build outputs
+dist
+build
+coverage
+
+# OS files
+.DS_Store
+Thumbs.db
