@@ -284,7 +284,7 @@ const GenreDetail = () => {
       </C.DetailTableContainer>
 
       {genreSongsPagination && genreSongsPagination.totalItems > 0 && (
-        <C.PaginationContainer>
+        <S.PaginationContainer>
           <C.RowsPerPageContainer>
             <C.Label>Rows per page:</C.Label>
             <C.Select
@@ -377,7 +377,7 @@ const GenreDetail = () => {
               </C.PaginationButton>
             </C.Pagination>
           )}
-        </C.PaginationContainer>
+        </S.PaginationContainer>
       )}
 
       <C.BottomSpacer />
