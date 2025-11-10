@@ -50,6 +50,7 @@ export const SidebarTitle = styled.h2`
 
   @media (max-width: 768px) {
     font-size: 1.3rem;
+    padding-left:2.5rem;
   }
 `
 export const NavList = styled.ul`

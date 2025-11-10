@@ -11,12 +11,12 @@ export const Header = styled.div`
   padding: 24px;
   background: white;
   border-bottom: 1px solid #e0e0e0;
-  margin-bottom: 24px;
+  // margin-bottom: 24px;
 `
 export const InfoHeader = styled.div`
   background: white;
   padding: 24px;
-  margin: 0 24px 24px;
+  margin: 24px 0;
   border-radius: 12px;
   border: 1px solid #e0e0e0;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
@@ -108,4 +108,16 @@ export const Description = styled.p`
   margin: 0 0 16px 0;
   color: #666;
   font-size: 1rem;
+`
+export const PaginationContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin:24px 0;
+  padding: 16px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  flex-wrap: wrap;
+  gap: 12px;
 `

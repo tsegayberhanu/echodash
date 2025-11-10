@@ -141,13 +141,13 @@ export const TableContainer = styled.div`
 `
 export const DetailTableContainer = styled.div`
   background: white;
-  margin: 0 24px;
+  // margin: 0 24px;
   border-radius: 12px;
   border: 1px solid #e0e0e0;
   overflow-x: auto;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
   min-height: 200px;
-  margin-bottom: 24px;
+  // margin-bottom: 24px;
 `
 export const Table = styled.table`
   width: 100%;
@@ -363,7 +363,7 @@ export const SearchSection = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 0 24px 24px 24px;
+  margin-bottom: 24px;
   gap: 16px;
 
   @media (max-width: 768px) {
